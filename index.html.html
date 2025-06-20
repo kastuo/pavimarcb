@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavimar C.B. - Especialistas en pavimentos de Hormigón Impreso y Pulidos</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#0077B6',secondary:'#FFB703'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/2/nave_4.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #0077B6;
+        }
+        .testimonial-card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .whatsapp-button {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+ /* Carrusel - Cuadrícula responsiva */
+.carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* En pantallas grandes (>= 1024px), muestra exactamente 4 items por fila */
+@media (min-width: 1024px) {
+  .carousel {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+  }
+}
+
+/* Estilo de cada item del carrusel */
+.carousel-item {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.carousel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.carousel-item:hover {
+  transform: scale(1.03);
+}
+
+.carousel-item img,
+.carousel-item video {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80vh;
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+.modal-content img,
+.modal-content video {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full bg-white bg-opacity-95 shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-3xl font-['Roboto'] font-bold text-primary">PAVIMAR</h1>
+                <span class="ml-2 text-sm font-semibold bg-secondary text-white px-2 py-1 rounded">C.B.</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-6">
+                <a href="#inicio" class="font-medium text-gray-700 hover:text-primary transition-colors">INICIO</a>
+                <a href="#servicios" class="font-medium text-gray-700 hover:text-primary transition-colors">SERVICIOS</a>
+                <a href="#proyectos" class="font-medium text-gray-700 hover:text-primary transition-colors">PROYECTOS</a>
+                <a href="#nosotros" class="font-medium text-gray-700 hover:text-primary transition-colors">SOBRE NOSOTROS</a>
+                <a href="#contacto" class="font-medium text-gray-700 hover:text-primary transition-colors">CONTACTO</a>
+            </nav>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="w-10 h-10 flex items-center justify-center text-gray-700">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#inicio" class="font-medium text-gray-700 hover:text-primary transition-colors py-2">Inicio</a>
+                <a href="#servicios" class="font-medium text-gray-700 hover:text-primary transition-colors py-2">Servicios</a>
+                <a href="#proyectos" class="font-medium text-gray-700 hover:text-primary transition-colors py-2">Proyectos</a>
+                <a href="#nosotros" class="font-medium text-gray-700 hover:text-primary transition-colors py-2">Sobre Nosotros</a>
+                <a href="#contacto" class="font-medium text-gray-700 hover:text-primary transition-colors py-2">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section min-h-screen flex items-center">
+        <div class="container mx-auto px-4 w-full">
+            <div class="max-w-2xl text-white">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">25 años de experiencia en hormigón y pulidos</h2>
+                <p class="text-xl mb-8">Garantizamos buenos acabados, alta calidad y una excelente relación calidad-precio en todos nuestros trabajos.</p>
+                <button class="bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-button shadow-lg transition-colors whitespace-nowrap flex items-center">
+                    <i class="ri-file-list-3-line mr-2"></i>
+                    Solicitar Presupuesto
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nuestros Servicios</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Ofrecemos soluciones profesionales para todo tipo de superficies de hormigón, adaptándonos a las necesidades específicas de cada cliente.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="h-56 overflow-hidden">
+                        <img src="img/impreso.webp" alt="Hormigón Impreso" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-hammer-line text-primary ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Hormigón Impreso</h3>
+                        <p class="text-gray-600 mb-4">Creamos superficies decorativas y duraderas con patrones y texturas personalizadas para exteriores e interiores.</p>
+                        <button class="text-primary font-medium flex items-center hover:text-blue-700 transition-colors whitespace-nowrap">
+                            <i class="ri-arrow-right-line ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="h-56 overflow-hidden">
+                        <img src="img/pulidos.webp" alt="Pulidos de Hormigón" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-brush-line text-primary ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Pulidos de Hormigón</h3>
+                        <p class="text-gray-600 mb-4">Transformamos superficies de hormigón en suelos brillantes y duraderos, ideales para naves industriales y espacios comerciales.</p>
+                        <button class="text-primary font-medium flex items-center hover:text-blue-700 transition-colors whitespace-nowrap">
+                            <i class="ri-arrow-right-line ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=concrete%20floor%20maintenance%2C%20worker%20applying%20sealant%20to%20concrete%20surface%2C%20professional%20maintenance%20equipment%2C%20industrial%20setting%2C%20high%20quality%20maintenance%20work%2C%20realistic%2C%20photorealistic&width=600&height=400&seq=service3&orientation=landscape" alt="Mantenimiento" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="ri-tools-line text-primary ri-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Mantenimiento</h3>
+                        <p class="text-gray-600 mb-4">Servicios de limpieza, sellado y restauración para mantener sus superficies de hormigón en perfectas condiciones durante años.</p>
+                        <button class="text-primary font-medium flex items-center hover:text-blue-700 transition-colors whitespace-nowrap">
+                            <i class="ri-arrow-right-line ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="py-20 bg-gray-50">
+        <class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nuestros Proyectos</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Descubra algunos de nuestros trabajos más destacados en diferentes tipos de instalaciones.</p>
+            </div>
+            <!--
+            <div class="mb-8 flex flex-wrap justify-center gap-4">
+                <button id="filter-all" class="filter-btn bg-primary text-white px-6 py-2 rounded-full font-medium whitespace-nowrap">Todos</button>
+                <button id="filter-industrial" class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100 whitespace-nowrap">Naves Industriales</button>
+                <button id="filter-garajes" class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100 whitespace-nowrap">Garajes</button>
+                <button id="filter-piscinas" class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100 whitespace-nowrap">Piscinas</button>
+                <button id="filter-chalets" class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium hover:bg-gray-100 whitespace-nowrap">Chalets</button>
+            </div>
+           
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> -->
+                 <!-- Carrusel -->
+
+<div class="carousel-container">
+  <div class="carousel">
+
+    <div class="carousel-item" onclick="openModal('img1')">
+      <img src="img/3/11.jpg"  alt="Imagen 1">
+    </div>
+    
+    <div class="carousel-item" onclick="openModal('img2')">
+       <img src="img/2/nave_1.avif"  alt="nave_1">
+    </div>
+    
+    <div class="carousel-item" onclick="openModal('img3')">
+       <img src="img/2/nave_2.webp"  alt="nave_2 ">
+    </div>
+    
+    <div class="carousel-item" onclick="openModal('img4')">
+     <!-- <video src=""  muted></video>-->
+      <img src="img/2/nave_3.avif"  alt="nave_3 ">
+    </div>
+    
+    <div class="carousel-item" onclick="openModal('img5')">
+       <img src="img/2/nave_4.avif"  alt="nave_4 ">
+    </div>
+  
+    <div class="carousel-item" onclick="openModal('img6')">
+       <img src="img/1/chalet_1.avif"  alt="chalet1 ">
+    </div>
+  
+    <div class="carousel-item" onclick="openModal('img7')">
+       <img src="img/1/chalet_2.avif"  alt="chalet2 ">
+    </div>
+        <div class="carousel-item" onclick="openModal('img8')">
+       <img src="img/5/nave_vieja_1.avif"  alt="nave_vieja_1">
+    </div>
+  
+    <div class="carousel-item" onclick="openModal('img9')">
+       <img src="img/5/nave_vieja_2.avif"  alt="nave_vieja_2 ">
+    </div>
+  
+    <div class="carousel-item" onclick="openModal('img10')">
+       <img src="img/5/nave_vieja_3.avif"  alt="nave_vieja_3 ">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img11')">
+       <img src="img/4/garaje_0.avif"  alt="garaje_1 ">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img12')">
+       <img src="img/4/garaje_1.avif"  alt="garaje_2 ">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img13')">
+       <img src="img/4/garaje_2.avif"  alt="garaje_3 ">
+    </div>
+        
+    <div class="carousel-item" onclick="openModal('img14')">
+       <img src="img/4/garaje_3.avif"  alt="garaje_4 ">
+    </div>
+
+     <div class="carousel-item" onclick="openModal('img15')">
+       <img src="img/4/garaje_4.avif"  alt="garaje_5">
+    </div>
+
+     <div class="carousel-item" onclick="openModal('img16')">
+       <img src="img/6/patio_1.avif"  alt="patio_1">
+    </div>
+
+     <div class="carousel-item" onclick="openModal('img17')">
+       <img src="img/6/patio_2.avif"  alt="patio_2">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img18')">
+       <img src="img/6/patio_3.avif"  alt="patio_3">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img19')">
+       <img src="img/7/parque_1.avif"  alt="parque_1">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img20')">
+       <img src="img/7/parque_2.avif"  alt="parque_2">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img21')">
+       <img src="img/7/parque_3.avif"  alt="parque_3">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img22')">
+       <img src="img/7/parque_4.avif"  alt="parque_4">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img23')">
+       <img src="img/8/impreso_1.avif"  alt="parque_4">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img24')">
+       <img src="img/8/impreso_2.avif"  alt="parque_4">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img25')">
+       <img src="img/8/impreso_3.avif"  alt="parque_4">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img26')">
+       <img src="img/6/rampa_1.avif"  alt="rampa_1">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img27')">
+       <img src="img/6/rampa_2.avif"  alt="rampa_2">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img28')">
+       <img src="img/6/rampa_3.avif"  alt="rampa_3">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img29')">
+       <img src="img/6/rampa_4.avif"  alt="rampa_4">
+    </div>
+
+    <div class="carousel-item" onclick="openModal('img30')">
+       <img src="img/6/rampa_5.avif"  alt="rampa_5">
+    </div>
+
+</div>
+</div></div>
+ <!--  Modal -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+
+  <script>
+    // Objeto con las URLs de los elementos para evitar duplicados
+    const mediaItems = {
+      'img1': { type: 'image', src: 'img/3/11.jpg'  },
+      'img2': { type: 'image', src: 'img/2/nave_1.avif'  },
+      'img3': { type: 'image', src: 'img/2/nave_2.webp'  },
+      'img4': { type: 'image', src: 'img/2/nave_3.avif'  },
+      'img5': { type: 'image', src: 'img/2/nave_4.avif'  },
+      'img6': { type: 'image', src: 'img/1/chalet_1.avif'  },
+      'img7': { type: 'image', src: 'img/1/chalet_2.avif'  },
+      'img8': { type: 'image', src: 'img/5/nave_vieja_1.avif'  },
+      'img9': { type: 'image', src: 'img/5/nave_vieja_2.avif'  },
+      'img10': { type: 'image', src: 'img/5/nave_vieja_3.avif'  },
+      'img11': { type: 'image', src: 'img/4/garaje_0.avif'  },
+      'img12': { type: 'image', src: 'img/4/garaje_1.avif'  },
+      'img13': { type: 'image', src: 'img/4/garaje_2.avif'  },
+      'img14': { type: 'image', src: 'img/4/garaje_3.avif'  },
+      'img15': { type: 'image', src: 'img/4/garaje_4.avif'  },
+      'img16': { type: 'image', src: 'img/6/patio_1.avif'  },
+      'img17': { type: 'image', src: 'img/6/patio_2.avif'  },
+      'img18': { type: 'image', src: 'img/6/patio_3.avif'  },
+      'img19': { type: 'image', src: 'img/7/parque_1.avif'  },
+      'img20': { type: 'image', src: 'img/7/parque_2.avif'  },
+      'img21': { type: 'image', src: 'img/7/parque_3.avif'  },
+      'img22': { type: 'image', src: 'img/7/parque_4.avif'  },
+      'img23': { type: 'image', src: 'img/8/impreso_1.avif'  },
+      'img24': { type: 'image', src: 'img/8/impreso_2.avif'  },
+      'img25': { type: 'image', src: 'img/8/impreso_3.avif'  },
+      'img26': { type: 'image', src: 'img/6/rampa_1.avif'  },
+      'img27': { type: 'image', src: 'img/6/rampa_2.avif'  },
+      'img28': { type: 'image', src: 'img/6/rampa_3.avif'  },
+      'img29': { type: 'image', src: 'img/6/rampa_4.avif'  },
+      'img30': { type: 'image', src: 'img/6/rampa_5.avif'  }
+    };
+
+    function openModal(id) {
+      const modal = document.getElementById("modal");
+      const content = document.getElementById("modal-content");
+      const item = mediaItems[id];
+
+      content.innerHTML = ""; // Limpiar contenido anterior
+
+      if (item.type === "image") {
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = "Imagen agrandada";
+        content.appendChild(img);
+      } else if (item.type === "video") {
+        const video = document.createElement("video");
+        video.src = item.src;
+        video.controls = true;
+        video.autoplay = true;
+        content.appendChild(video);
+      }
+
+      modal.style.display = "flex";
+    }
+
+    function closeModal(event) {
+      const modal = document.getElementById("modal");
+
+      // Cerrar solo si se hace clic fuera del contenido o en la X
+      if (event.target === modal || event.target.classList.contains("close-btn")) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+                <!-- Proyecto 1 
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="industrial">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="" alt="Nave Industrial" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button class="bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="ri-zoom-in-line ri-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-gray-800">Nave Industrial en Valencia</h3>
+                        <p class="text-gray-600 text-sm">Pulido de hormigón en 1.500 m²</p>
+                    </div>
+                </div>
+                
+                 Proyecto 2 
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="garajes">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%20underground%20parking%20garage%20with%20smooth%20polished%20concrete%20floor%2C%20clean%20lines%2C%20good%20lighting%2C%20cars%20parked%2C%20professional%20finish%2C%20realistic%2C%20photorealistic&width=600&height=400&seq=project2&orientation=landscape" alt="Garaje" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button class="bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="ri-zoom-in-line ri-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-gray-800">Garaje Comunitario en Alicante</h3>
+                        <p class="text-gray-600 text-sm">Hormigón impreso con acabado antideslizante</p>
+                    </div>
+                </div>
+                
+                Proyecto 3 
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="piscinas">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20swimming%20pool%20with%20stamped%20concrete%20deck%2C%20beautiful%20pattern%2C%20outdoor%20setting%2C%20modern%20design%2C%20professional%20finish%2C%20sunny%20day%2C%20realistic%2C%20photorealistic&width=600&height=400&seq=project3&orientation=landscape" alt="Piscina" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button class="bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="ri-zoom-in-line ri-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-gray-800">Piscina Privada en Benidorm</h3>
+                        <p class="text-gray-600 text-sm">Hormigón impreso con efecto piedra natural</p>
+                    </div>
+                </div>
+                
+                 Proyecto 4 
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="chalets">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=modern%20luxury%20villa%20with%20stamped%20concrete%20driveway%20and%20patio%2C%20beautiful%20texture%2C%20outdoor%20setting%2C%20professional%20installation%2C%20high-end%20residential%20property%2C%20realistic%2C%20photorealistic&width=600&height=400&seq=project4&orientation=landscape" alt="Chalet" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button class="bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="ri-zoom-in-line ri-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-gray-800">Chalet en Jávea</h3>
+                        <p class="text-gray-600 text-sm">Hormigón impreso en exteriores y accesos</p>
+                    </div>
+                </div>
+                
+                 Proyecto 5 
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="industrial">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=manufacturing%20facility%20with%20high%20gloss%20polished%20concrete%20floor%2C%20industrial%20machinery%2C%20spacious%20interior%2C%20professional%20finish%2C%20bright%20lighting%2C%20realistic%2C%20photorealistic&width=600&height=400&seq=project5&orientation=landscape" alt="Fábrica" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button class="bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="ri-zoom-in-line ri-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-gray-800">Fábrica en Castellón</h3>
+                        <p class="text-gray-600 text-sm">Pulido industrial con tratamiento antipolvo</p>
+                    </div>
+                </div>
+                
+                 Proyecto 6 
+                <div class="gallery-item rounded-lg overflow-hidden shadow-md" data-category="chalets">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=luxury%20home%20interior%20with%20polished%20concrete%20floors%2C%20modern%20design%2C%20open%20concept%2C%20high-end%20finishes%2C%20bright%20and%20airy%2C%20professional%20installation%2C%20realistic%2C%20photorealistic&width=600&height=400&seq=project6&orientation=landscape" alt="Interior Chalet" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button class="bg-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="ri-zoom-in-line ri-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <h3 class="font-semibold text-gray-800">Villa en Altea</h3>
+                        <p class="text-gray-600 text-sm">Microcemento en interiores y terraza</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Por qué elegirnos -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2">
+                    <img src="https://readdy.ai/api/search-image?query=professional%20concrete%20workers%20team%20in%20uniform%20working%20on%20a%20large%20concrete%20floor%20installation%2C%20diverse%20team%2C%20professional%20equipment%2C%20industrial%20setting%2C%20teamwork%2C%20realistic%2C%20photorealistic&width=800&height=600&seq=team&orientation=landscape" alt="Equipo Pavimar" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Por Qué Elegirnos</h2>
+                    <p class="text-gray-600 mb-8">En Pavimar C.B. llevamos más de 25 años ofreciendo soluciones de hormigón de la más alta calidad. Nuestro compromiso con la excelencia nos ha convertido en líderes del sector.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-medal-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">25 años de experiencia</h3>
+                                <p class="text-gray-600">Contamos con un amplio conocimiento y experiencia en todo tipo de trabajos con hormigón.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-star-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">Calidad garantizada</h3>
+                                <p class="text-gray-600">Utilizamos materiales de primera calidad y las técnicas más avanzadas para asegurar resultados excepcionales.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-price-tag-3-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">Precios competitivos</h3>
+                                <p class="text-gray-600">Ofrecemos la mejor relación calidad-precio del mercado, con presupuestos transparentes y sin sorpresas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-shield-check-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">Garantía en todos los trabajos</h3>
+                                <p class="text-gray-600">Respaldamos todos nuestros trabajos con garantía, asegurando su tranquilidad y satisfacción.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios 
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Lo Que Dicen Nuestros Clientes</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">La satisfacción de nuestros clientes es nuestro mejor aval. Descubra lo que opinan de nuestro trabajo.</p>
+            </div>
+            
+            <div class="relative">
+                <div id="testimonials-container" class="flex overflow-hidden">
+                    <!-- Testimonial 1 
+                    <div class="testimonial-card min-w-full md:min-w-[33.333%] p-6 bg-white rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">"Contratamos a Pavimar para el hormigón impreso de nuestra vivienda y quedamos encantados con el resultado. Profesionales, puntuales y con un acabado perfecto. Totalmente recomendables."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-user-line text-gray-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Carlos Martínez</h4>
+                                <p class="text-gray-500 text-sm">Propietario de chalet en Dénia</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 
+                    <div class="testimonial-card min-w-full md:min-w-[33.333%] p-6 bg-white rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">"Llevamos trabajando con Pavimar más de 10 años para el mantenimiento del suelo de nuestra nave industrial. Su profesionalidad y la calidad de su trabajo son excepcionales. Un equipo de confianza."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-user-line text-gray-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Elena Rodríguez</h4>
+                                <p class="text-gray-500 text-sm">Gerente de Logística Industrial S.L.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3
+                    <div class="testimonial-card min-w-full md:min-w-[33.333%] p-6 bg-white rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">"Realizaron el pulido del garaje comunitario de nuestra urbanización. El trabajo quedó impecable y el precio fue muy competitivo. Además, cumplieron con los plazos acordados. Muy satisfechos."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-user-line text-gray-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Miguel Ángel Sánchez</h4>
+                                <p class="text-gray-500 text-sm">Presidente Comunidad Residencial Mediterráneo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 
+                    <div class="testimonial-card min-w-full md:min-w-[33.333%] p-6 bg-white rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">"Contratamos a Pavimar para la renovación del suelo de nuestra piscina y terraza. El resultado ha sido espectacular, mucho mejor de lo que esperábamos. Profesionales y con un trato excelente."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                                <i class="ri-user-line text-gray-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Laura Gómez</h4>
+                                <p class="text-gray-500 text-sm">Propietaria en Altea Hills</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mt-8">
+                    <div class="flex space-x-2">
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-primary"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contacte con Nosotros</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Estamos a su disposición para resolver cualquier duda o proporcionarle un presupuesto sin compromiso.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="w-full lg:w-1/2">
+                    <form class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nombre</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Su nombre">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Su email">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Teléfono</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Su teléfono">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Servicio de interés</label>
+                            <div class="relative">
+                                <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+                                    <option value="">Seleccione un servicio</option>
+                                    <option value="hormigon-impreso">Hormigón Impreso</option>
+                                    <option value="pulidos">Pulidos</option>
+                                    <option value="mantenimiento">Mantenimiento</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                    <i class="ri-arrow-down-s-line text-gray-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Cuéntenos sobre su proyecto"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-button shadow-md transition-colors whitespace-nowrap w-full">Enviar Mensaje</button>
+                    </form>
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <div class="h-64 md:h-96 bg-gray-200 rounded-lg overflow-hidden mb-8">
+                        <div class="h-full w-full" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-map-pin-line text-primary ri-lg"></i>
+                            </div>
+                         <!--
+                               <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">Dirección</h3>
+                                <p class="text-gray-600">Calle Industria, 24<br>46980 Paterna, Valencia</p>
+                            </div>-->
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-phone-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">Teléfono</h3>
+                                <p class="text-gray-600">+34 656 420 600<br>+34 626 377 431</p>
+                                <p class="text-gray-600">Atencion en ingles : +34 645 306 804</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-mail-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">Email</h3>
+                                <p class="text-gray-600">pavimarcb@gmail.com<br>presupuestos@pavimarcb.es</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="ri-time-line text-primary ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-1">Horario</h3>
+                                <p class="text-gray-600">Lunes - Viernes: 8:00 - 18:00<br>Sábados: 9:00 - 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <h2 class="text-3xl font-['Pacifico'] text-white">Pavimar</h2>
+                        <span class="ml-2 text-sm font-semibold bg-secondary text-white px-2 py-1 rounded">C.B.</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Más de 25 años de experiencia en la instalación y mantenimiento de hormigón impreso y pulidos.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-fill text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="text-gray-400 hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="#proyectos" class="text-gray-400 hover:text-white transition-colors">Proyectos</a></li>
+                        <li><a href="#nosotros" class="text-gray-400 hover:text-white transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Servicios</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hormigón Impreso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pulidos de Hormigón</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mantenimiento</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Microcemento</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Restauración</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <ul class="space-y-4">
+                     <!--   <li class="flex items-start">
+                            <i class="ri-map-pin-line mr-3 mt-1 text-secondary"></i>
+                            <span class="text-gray-400">Calle Industria, 24<br>46980 Paterna, Valencia</span>
+                        </li>-->
+                        <li class="flex items-start">
+                            <i class="ri-phone-line mr-3 mt-1 text-secondary"></i>
+                            <span class="text-gray-400">+34 656 420 600 <br>+34 645 306 804</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="ri-mail-line mr-3 mt-1 text-secondary"></i>
+                            <span class="text-gray-400">pavimarcb@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Pavimar C.B. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Términos y Condiciones</a>
+                    <a class="text-gray-400 hover:text-white text-sm transition-colors" id="cookie-consent-script">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34645306804" class="whatsapp-button fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white z-50 hover:bg-green-600 transition-colors">
+        <i class="ri-whatsapp-line ri-xl"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top fixed bottom-24 right-6 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white z-50 hover:bg-blue-700 transition-colors">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <!-- Cookie Consent
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 z-50 flex flex-col md:flex-row items-center justify-between">
+        <p class="text-gray-700 mb-4 md:mb-0 md:mr-8">Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar navegando, acepta nuestra <a href="#" class="text-primary hover:underline">política de cookies</a>.</p>
+        <div class="flex space-x-4">
+            <button id="accept-cookies" class="bg-primary hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-button transition-colors whitespace-nowrap">Aceptar</button>
+            <button id="reject-cookies" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-6 rounded-button transition-colors whitespace-nowrap">Rechazar</button>
+        </div>
+    </div> -->
+
+    <!-- Scripts -->
+    <script id="navigation-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script id="project-filter-script">
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-white');
+                        btn.classList.add('bg-white', 'text-gray-700');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.remove('bg-white', 'text-gray-700');
+                    this.classList.add('bg-primary', 'text-white');
+                    
+                    const filter = this.id.replace('filter-', '');
+                    
+                    // Show/hide gallery items based on filter
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <script id="testimonial-slider-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('testimonials-container');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            let currentIndex = 0;
+            
+            function updateSlider() {
+                const slideWidth = testimonials[0].offsetWidth;
+                container.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('bg-primary');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.remove('bg-primary');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+            
+            // Add click event to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider();
+                });
+            });
+            
+            // Auto slide
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                updateSlider();
+            }, 5000);
+            
+            // Initial setup
+            updateSlider();
+            
+            // Update on window resize
+            window.addEventListener('resize', updateSlider);
+        });
+    </script>
+    
+    <script id="scroll-features-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            // Show/hide back to top button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top when button is clicked
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <script id="cookie-consent-script">
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptButton = document.getElementById('accept-cookies');
+            const rejectButton = document.getElementById('reject-cookies');
+            
+            // Check if user has already made a choice
+            if (localStorage.getItem('cookieConsent')) {
+                cookieConsent.style.display = 'none';
+            }
+            
+            acceptButton.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.style.display = 'none';
+            });
+            
+            rejectButton.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieConsent.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
